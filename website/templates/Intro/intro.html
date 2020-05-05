@@ -1,0 +1,129 @@
+{% extends "base_template.html" %}
+
+{% block title %} Introduction {% endblock %}
+{% block css %} <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/intro.css') }}"> {% endblock %}
+{% block main %}
+    <div class="row box">
+        <div class="col">
+            <!-- Introduction paragraphs-->
+           <div class="intro_para">
+               <h2> Who are we? </h2>
+               <p>
+                   Concordia's Ultimate Frisbee team has been around for 4 years represent our
+                   university in multiple leagues and tournament in the Montreal area. Although we
+                   are not sponsored or directly affiliated with the School, our club is managed
+                   by students from Concordia and we are looking to make our school proud
+                   in a pool of competition with other universities and Cegeps across Montreal,
+                   Quebec and even Canada. People who join our team are ready to make sacrifices
+                   with their school work and free up some time at least once a week for an hour
+                   or two to give it their all every single time!
+               </p> <hr> <br>
+           </div>
+           <h3> Our typical year </h3>
+           <p>
+               A frisbee year for us starts at the same time as the fall semester where we conduct
+               tryouts and practices on multiple weeks to make up the team for the year. Then, we
+               participate in any designated tournaments and leagues for Universities mainly
+               organized by <a href="http://montrealultimate.ca/"> Ultimate Grand Montreal (UGM)</a>
+               all along the school year until the end of the winter semester where our journey ends.
+               Down below is a mock calendar of journey through the year.
+           </p> <br>
+            <!-- Responsive table generated all here-->
+           <div class="table-responsive">
+              <table class="table">
+                  <caption>* <strong>Note</strong> all events will happen on the island of Montreal</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Period</th>
+                      <th scope="col">Activity</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Against Who</th>
+                      <th scope="col">Are we doing it?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>September</td>
+                      <td>Team tryouts</td>
+                      <td>Tryouts</td>
+                      <td>---------</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <td>September-October</td>
+                      <td>Team Practices</td>
+                      <td>Practices</td>
+                      <td>--------</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <td>Mid-October</td>
+                      <td>Canadian University Ultimate Championships(CUUC)</td>
+                      <td>Tournament</td>
+                      <td>Other universities in Quebec (Possibility of moving on to nationals)</td>
+                      <td>Yes</td>
+                    </tr>
+                  <tr>
+                      <td>End of October</td>
+                      <td>U&U (organised by Mgcill)</td>
+                      <td>Tournament</td>
+                      <td>Other universities in Quebec or Ontario</td>
+                      <td>Yes</td>
+                    </tr>
+                  <tr>
+                      <td>November-March</td>
+                      <td>Winter league</td>
+                      <td>League</td>
+                      <td>Universities and Cegeps in Montreal</td>
+                      <td>Yes</td>
+                    </tr>
+                  <tr>
+                      <td>January</td>
+                      <td>Club M tournament</td>
+                      <td>Tournament</td>
+                      <td>Universities and Cegeps in Montreal</td>
+                      <td>Optional</td>
+                    </tr>
+                  <tr>
+                      <td>April</td>
+                      <td>Primavera</td>
+                      <td>Tournament</td>
+                      <td>Random adult teams from Montreal</td>
+                      <td>Optional</td>
+                    </tr>
+                  <tr>
+                      <td>April-May</td>
+                      <td>Spring League</td>
+                      <td>League</td>
+                      <td>Random adult teams from Montreal</td>
+                      <td>Optional</td>
+                    </tr>
+                  </tbody>
+                </table>
+           </div>
+
+           <h2>If you never heard of Ultimate Frisbee before</h2>
+            <!-- Embedded youtube video-->
+           <p>
+               For all you newcomers out there, Ultimate Frisbee is a sport that is similar
+               to american football but without contact. See the video below for a quick overview
+               of the rules.
+           </p>
+           <div class="iframe-container">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/UnNUEvs2Ev0"
+                       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+                        picture-in-picture" allowfullscreen>
+               </iframe>
+           </div>
+           <h3>5 good reasons for playing Ultimate</h3> <hr>
+            <!-- Simple ordered list-->
+           <ol>
+            <li><b>Non-contact</b> – as a non-contact sport it is a great, safe sport for students of all ages, sizes and abilities.</li>
+            <li><b>Self-refereed</b> – the self-refereeing aspect of Ultimate encourages a mature response to competitive situations.</li>
+            <li><b>Skill Acquisition</b> – the task of throwing a frisbee accurately and catching it successfully is great for the development of hand-eye co-ordination.</li>
+            <li><b>Fun</b> – we regularly find that students who wouldn’t usually get involved in PE really take an interest in Ultimate.</li>
+            <li><strong>Co-ed</strong> – Ultimate is most commonly played with both men and women. Teachers Games, Universtity Games and most leagues in Australia are Mixed.</li>
+           </ol>
+        </div>
+    </div>
+{% endblock %}

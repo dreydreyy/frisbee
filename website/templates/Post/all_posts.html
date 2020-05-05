@@ -1,0 +1,42 @@
+{% extends "base_template.html" %}
+
+{% block title %} All Posts {% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/posts.css') }}">
+{% endblock %}
+{% block main %}
+
+    <div class="row box">
+        <div class="col">
+            <!-- Displays all posts from the database in order of time posted-->
+             {% for post in posts.items %}
+                <article class="media content-section">
+                  <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+                      <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+                    </div>
+                    <h2><a class="article-title">{{ post.title }}</a></h2>
+                    <p class="article-content">{{ post.content }}</p>
+                  </div>
+                </article>
+            {% endfor %}
+        <!-- To avoid putting all posts into a single page and slowing down the website, will display
+             them on multiple pages(as much as needed) with 5 posts epr page and below is the code
+             for a way to navigate between these pages -->
+            {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+              {% if page_num %}
+                {% if posts.page == page_num %}
+                  <a class="btn btn-info mb-4" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                  <a class="btn btn-outline-info mb-4" href="{{ url_for('posts.all_posts', page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+              {% else %}
+                ...
+              {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

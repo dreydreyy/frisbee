@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" xmlns:max-height="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Importing bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Importing css stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+    <!-- Title block -->
+    <title>{% block title %}{% endblock %}</title>
+    <!-- CSS block -->
+    {% block css %}{% endblock %}
+  </head>
+  <body>
+  <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-xl navbar-dark" style="background-color:darkred">
+        <a class="navbar-brand" href="/" >
+            <img src="../static/img/conu_logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="Concordia logo">
+            Concordia Ultimate Frisbee
+        </a>
+        <!-- When size too small, toggle button appears for menu -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.intro') }}">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.team') }}">The Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.join') }}">How to join?</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Additional Info
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="{{ url_for('main.training') }}">Training</a>
+                      <a class="dropdown-item" href="{{ url_for('main.vocab') }}">Ultimate Terms</a>
+                      {% if current_user.is_authenticated %}
+                      <a class="dropdown-item" href="{{ url_for('main.jersey') }}">Jersey Order</a>
+                      {% endif %}
+                      <a class="dropdown-item" href="{{ url_for('main.games') }}">Games to watch</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.contact') }}">Contact</a>
+                </li>
+            </ul>
+            <div class="navbar-nav">
+            <!-- These next options on the bar only for login accounts -->
+              {% if current_user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Posts
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="{{ url_for('posts.new_post') }}">Create Post</a>
+                      <a class="dropdown-item" href="{{ url_for('posts.all_posts') }}">View all posts</a>
+                      <a class="dropdown-item" href="{{ url_for('users.user_posts', username=current_user.username)}}">View my posts</a>
+                    </div>
+                </li>
+                <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
+              {% endif %}
+            </div>
+        </div>
+    </nav>
+    <!-- Header, will use variable passed from routes definition for the title -->
+    <div class="container-fluid border-b">
+        <div class="row header justify-content-center">
+            <div class="col-1 my-auto text-center">
+                <img src="../static/img/frisbee.PNG" class="img-fluid" width="100px" height="80px"  >
+            </div>
+            <div class="col-6 text-center my-auto">
+                <h1>{{ header }}</h1>
+            </div>
+            <div class="col-1 my-auto text-center">
+                <img src="../static/img/frisbee.PNG" class="img-fluid" width="100px" height="80px" >
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+             <!-- Alerts that pages will generate are formated here -->
+             {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="row box">
+                      <div class="col">
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+             {% endwith %}
+            <!-- Block where main content of each page will be put in -->
+            {% block main %}{% endblock %}
+        </div>
+    </div>
+    <!-- Footer that will appear on each page, displays some navbar options in a list format -->
+    <footer>
+        <div id="footer">
+            <ul class="foot-nav">
+                <li class="foot-item">
+                    <a href="{{ url_for('main.index') }}">Home</a>
+                </li>
+                <li class="foot-item">
+                    <a href="{{ url_for('main.intro') }}">Introduction</a>
+                </li>
+                <li class="foot-item">
+                    <a href="{{ url_for('main.team') }}">The Team</a>
+                </li>
+                <li class="foot-item">
+                    <a href="{{ url_for('main.join') }}">How to join?</a>
+                </li>
+                <li class="foot-item">
+                     <a href="{{ url_for('main.contact') }}">Contact</a>
+                </li>
+            </ul>
+            <!-- Social media links displayed as a list -->
+            <ul class="foot-nav" id="social">
+                <li class="foot-item" >
+                    <a class="navbar-brand" href="https://www.facebook.com/ConU-Concordia-Ultimate-138959589475670/" >
+                        <img src="../static/img/fb.PNG" width="20" height="20" class="d-inline-block align-top">
+                        Facebook
+                    </a>
+                </li>
+                <li class="foot-item">
+                   <a class="navbar-brand" href=https://www.instagram.com/concordia_ultimate/ >
+                        <img src="../static/img/insta.PNG" width="20" height="20" class="d-inline-block align-top">
+                        Instagram
+                    </a>
+                </li>
+            </ul>
+            <p id="message">Made by yours truly Drey Dreyy</p>
+        </div>
+    </footer>
+
+    <!-- Importing javascript code for bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Javascript code for popover on "Team" page -->
+    <script>
+        $(function () {
+          $('[data-toggle="popover"]').popover({trigger: 'focus'})
+        })
+    </script>
+  </body>
+</html>

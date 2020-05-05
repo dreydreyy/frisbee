@@ -1,0 +1,35 @@
+#intro{
+    margin-bottom: 30px;
+}
+.date{
+    margin-left: 0;
+    float: left;
+}
+.border-r{
+    border-right-width: 8px;
+    border-right-style: solid;
+    border-right-color: darkslateblue;
+    padding-right: 65px;
+}
+.border-l{
+    padding-left: 65px;
+}
+
+@media screen and (max-width : 768px){
+    .border-r{
+    margin-bottom: 20px;
+    border-right-width: 0px;
+    padding-right: 15px;
+    }
+    .border-l{
+    padding-left: 15px;
+    }
+}
+
+.article-little-img{
+  height: 45px;
+  width: 45px;
+  margin-right: 15px;
+}
+
+

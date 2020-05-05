@@ -1,0 +1,30 @@
+{% extends "base_template.html" %}
+
+{% block title %} Info {% endblock %}
+{% block css %}    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/training.css') }}">
+{% endblock %}
+{% block main %}
+    <!-- Embedded youtube videos-->
+    <div class="row box">
+        <div class="col">
+            <h3>How to throw a forehand</h3> <hr>
+            <div class="embed-responsive embed-responsive-16by9 sizer">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AiU5518a1q0" allowfullscreen></iframe>
+            </div><br><br>
+            <h3>How to throw a backhand</h3> <hr>
+            <div class="embed-responsive embed-responsive-16by9 sizer">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/As1X0JNWiLY" allowfullscreen></iframe>
+            </div><br><br>
+            <h3>How to throw a hammer</h3> <hr>
+            <div class="embed-responsive embed-responsive-16by9 sizer">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NbwitQD0ATQ" allowfullscreen></iframe>
+            </div><br><br>
+            <h3>Ultimate frisbee workout</h3> <hr>
+            <div class="embed-responsive embed-responsive-16by9 sizer">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gUOYj9k2i-s" allowfullscreen></iframe>
+            </div><br><br>
+        </div>
+    </div>
+
+{% endblock %}

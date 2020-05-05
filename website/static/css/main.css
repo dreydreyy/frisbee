@@ -1,0 +1,96 @@
+
+.nav-item a:hover {
+  background-color: rebeccapurple;
+  color: white;
+}
+
+.box{
+    padding: 19px;
+    background: #fff;
+    border: 5px solid darkslateblue;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+#footer {
+    width: 100%;
+    border-top: 2px solid rgba(127,127,127,0.5);
+    background: lightgrey;
+    margin-top: 40px;
+    padding: 20px;
+}
+.foot-nav{
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+}
+.foot-item{
+    display: inline-block;
+    margin-right: 40px;
+    font-size: 0.9em;
+}
+#social{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#message{
+    text-align: center;
+    margin-right: 40px;
+    font-family: Merianda;
+}
+.jumbotron{
+    background:url('../img/conu_logo.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.header{
+    background:beige;
+    padding: 30px;
+    font-size: 40px;
+}
+.border-b{
+    border-bottom-width:8px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+}
+
+.article-title {
+  color: #444444;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.content-section {
+  background: lightcyan;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}

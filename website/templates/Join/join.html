@@ -1,0 +1,41 @@
+{% extends "base_template.html" %}
+
+{% block title %} Join {% endblock %}
+{% block css %}    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/join.css') }}">
+{% endblock %}
+{% block main %}
+    <div class="row box">
+        <div class="col">
+            <!-- Simple unordered list with texts-->
+            <h3>Sorry :( We are currently not recruiting anymore members for this season.</h3> <br>
+            <p>
+                However, here is a list of steps you can take until the start of next season next fall semester:
+            </p>
+            <ul>
+                <li>
+                    Go and practice throwing a frisbee with a friend (or even alone) outside
+                    whenever you can. Becoming a good <a href="{{ url_for('main.vocab') }}">handler</a> takes years
+                    of practice since it uses alot of muscle memory and wrist strength that can
+                    only be built by practicing. <a href="{{ url_for('main.training') }}">Click here for tips on
+                    how to throw in different ways.</a>
+                </li> <br>
+                <li>
+                    If it's too cold outside, you can still hit the gym. Although bench press
+                    won't help you much in a game, there are still plenty of <a href="{{ url_for('main.training') }}">
+                    workouts</a> out there to do at home or at the gym to increase some physical
+                    capabilities.
+                </li> <br>
+                <li>
+                    Watch some <a href="{{ url_for('main.games') }}">gameplay</a> of pro Ultimate Frisbee players
+                    so you can learn from the best!
+                </li> <br>
+                <li>
+                    Be ready around august-september and follow our<a href="{{ url_for('main.contact') }}"> social
+                    media</a> also to be notified whenever we announce our tryouts.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

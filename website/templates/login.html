@@ -1,0 +1,68 @@
+{% extends "base_template.html" %}
+
+{% block title %} Login {% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">
+{% endblock %}
+{% block main %}
+    <!-- Just a form with option for login and reset password -->
+    <div class="row box">
+        <div class="col">
+          <form method="post" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Create your account</legend>
+                <!-- Enter Username Here -->
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    <!-- If form is invalid will display error message-->
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <!-- Enter Password Here -->
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    <!-- If form is invalid will display error message-->
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <!-- If form is valid will log user in-->
+                {{ form.submit(class="btn btn-outline-info") }}
+                <!-- If user forgot password, will redirect him towards lost password page-->
+                <small class="text-muted ml-2">
+                <a href="{{ url_for('users.reset_request') }}">Forgot Password?</a>
+                </small>
+            </div>
+          </form>
+        <div class="border-top pt-3">
+            <!-- If user doesn't have account, redirect to register page-->
+            <small class="text-muted">
+                Don't Have An Account? <a class="ml-2" href="{{ url_for('users.register') }}">Sign Up Now</a>
+            </small>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}

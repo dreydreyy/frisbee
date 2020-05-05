@@ -1,0 +1,78 @@
+{% extends "base_template.html" %}
+
+{% block title %} Contact {% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/contact.css') }}">
+{% endblock %}
+{% block main %}
+    <!-- Dummy data for contact information and social media, possibility to click on link and send email
+         directly to one of the captains-->
+    <div class="row box">
+        <div class="col">
+            <h3>Social media</h3><hr>
+                <a class="navbar-brand" href=https://www.instagram.com/concordia_ultimate/ >
+                        <img src="../static/img/insta.PNG" width="20" height="20" class="d-inline-block align-top">
+                        Instagram: concordia_ultimate
+                </a><br>
+                <a class="navbar-brand" href="https://www.facebook.com/ConU-Concordia-Ultimate-138959589475670/" >
+                        <img src="../static/img/fb.PNG" width="20" height="20" class="d-inline-block align-top">
+                        Facebook: ConU Concordia Ultimate
+                </a><br><br>
+
+            <h3>People in charge</h3> <hr>
+            <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">Pierre Brault</dd>
+
+            <dt class="col-sm-3">Role</dt>
+            <dd class="col-sm-9">Captain</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9"><a href="mailto:pierre.brault@concordia.ca">mailto:pierre.brault@concordia.ca</a> </dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">514-534-3444</dd>
+            </dl><br>
+            <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">Audrey Marquis</dd>
+
+            <dt class="col-sm-3">Role</dt>
+            <dd class="col-sm-9">Captain</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9"><a href="mailto:audrey.marquis@concordia.ca">mailto:audrey.marquis@concordia.ca</a> </dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">514-532-3444</dd>
+            </dl><br>
+            <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">Francis Brown</dd>
+
+            <dt class="col-sm-3">Role</dt>
+            <dd class="col-sm-9">Captain</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9"><a href="mailto:francis.brown@concordia.ca">mailto:francis.brown@concordia.ca</a> </dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">514-534-3557</dd>
+            </dl><br>
+            <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">Andrei Grosuliac</dd>
+
+            <dt class="col-sm-3">Role</dt>
+            <dd class="col-sm-9">In charge of website</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9"><a href="mailto:andrei.grosuliac@concordia.ca">mailto:andrei.grosuliac@concordia.ca</a> </dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">514-534-9007</dd>
+            </dl><br>
+        </div>
+    </div>
+
+{% endblock %}

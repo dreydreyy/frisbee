@@ -1,0 +1,60 @@
+{% extends "base_template.html" %}
+
+{% block title %} Info {% endblock %}
+{% block css %}    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/games.css') }}">
+{% endblock %}
+{% block main %}
+    <div class="row box">
+        <div class="col">
+            <!-- Lists of links-->
+            <h2>7v7</h2><hr>
+            <h6>Open Division</h6>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=k6LRV8zBA78">Chicago Machine
+                    vs New York PONY (Semis Nationals 2019) </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=n747DJQIqzY&t=5540s">Raleigh Ring of Fire
+                    vs Seattle Sockeye (Semis USA Nationals 2019) </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=4I8swqG5WuE">Chicago Machine
+                    vs Seattle Sockeye (Finals USA Nationals 2019) </a>
+                </li>
+            </ul>
+            <h6>Women Division</h6>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=J3sDoRr50jk">Toronto 6ixers vs
+                    Boston Brute Squad (Finals Nationals 2019) </a>
+                </li>
+            </ul>
+            <h6>Mixed Division</h6>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=7UePxMZhmXQ">San Francisco Mischief
+                    vs Philadelphia AMP (Finals Nationals 2019) </a>
+                </li>
+            </ul><br><br>
+            <h2>5v5</h2><hr>
+            <h6>Open Division</h6>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=QRo1xjJEFbw">Positive MOJO
+                    vs Roehamption (Finals UNION 2010) </a>
+                </li>
+            </ul><br><br>
+            <h2>4v4</h2><hr>
+            <h6>Mixed Division</h6>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=U_N3n91DoXQ">Louis Luncheonette (QC)
+                    vs. Brunch Money (NS) (Finals C4UC 2019) </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

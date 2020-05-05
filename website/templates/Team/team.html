@@ -1,0 +1,105 @@
+{% extends "base_template.html" %}
+
+{% block title %} Team {% endblock %}
+{% block css %}    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/team.css') }}">
+{% endblock %}
+{% block main %}
+    <div class="row box text-center">
+        <div class="col">
+            <div class="row">
+                <!-- Capsule presenting captains of team with their picture in 3 separate columns-->
+                <div class="col">
+                    <h2>Our Captains!</h2> <hr>
+                </div>
+            </div>
+            <div class="row d-flex flex-row">
+                <div class="col-4">
+                    <figure class="figure">
+                      <img src="../static/img/Audrey.PNG" class="figure-img img-fluid rounded captain">
+                      <figcaption class="figure-caption text-center">Audrey Marquis.</figcaption>
+                    </figure>
+                </div>
+                <div class="col-4">
+                    <figure class="figure">
+                      <img src="../static/img/pierre.PNG" class="figure-img img-fluid rounded captain">
+                      <figcaption class="figure-caption text-center">Pierre Brault.</figcaption>
+                    </figure>
+                </div>
+                <div class="col-4">
+                    <figure class="figure">
+                      <img src="../static/img/Francis.PNG" class="figure-img img-fluid rounded captain">
+                      <figcaption class="figure-caption text-center">Francis Phipps-Brown.</figcaption>
+                    </figure> <br> <br>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Look to bottom of page where the full roster is-->
+               <a class="btn btn-primary btn-block" href="#roster" role="button">
+                   Click here to see the full roster
+               </a>
+            </div>
+        </div>
+    </div>
+    <div class="row box">
+        <div class="col">
+            <!-- Scores of previous games, for now only link to another website which shows the scores-->
+            <h2 id="scores">Scores</h2> <hr>
+            <h5> Go on this link to see past and upcoming game scores.</h5>
+            <a href="https://montrealultimate.ca/fr_ca/t/con-u-rumble"> Scores-UGM_Montreal</a>
+        </div>
+    </div>
+    <div class="row box">
+        <div class="col">
+            <!-- Responsive table containing roster-->
+            <h2 id="roster">Roster</h2> <hr><br>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Year on the team</th>
+                      <th scope="col">Position</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <!-- First player is written directly here to show a popover with some more details about the player-->
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <a  href="" onclick="return false;"
+                           data-toggle="popover"
+                           data-html="true"
+                           title="Andrei Grosuliac"
+                           data-content=
+                           "<img src='../static/img/drey.PNG' wight=200px height=284px><br><br>
+                            <p>Also played with:</p>
+                            <ul>
+                                <li>EIM (2017)</li>
+                                <li>Titane (2018)</li>
+                                <li>Dawson (2018-2019)</li>
+                            </ul>">
+                          Andrei Grosuliac
+                        </a>
+                      </td>
+                      <td>1rst year</td>
+                      <td>Hybrid</td>
+                    </tr>
+                  <!-- Rest of players are generated dynamically from a csv file-->
+                    {% for player in roster %}
+                        <tr>
+                            <td>{{ player['Number'] }}</td>
+                            <td>{{ player['Name'] }}</td>
+                            <td>{{ player['Year_On_Team'] }}</td>
+                            <td>{{ player['Position'] }}</td>
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock %}

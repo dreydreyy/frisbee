@@ -1,0 +1,75 @@
+{% extends "base_template.html" %}
+
+{% block title %} Home {% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
+{% endblock %}
+{% block main %}
+    <!-- Intro paragraph with link to intro page-->
+    <div class="row box">
+        <div class="col text-center">
+            <h2 id="intro">If you are new here, please click the button down below to know more about us.</h2>
+            <a class="btn btn-success btn-lg" href="{{ url_for('main.intro') }}" role="button">Click Here!</a>
+        </div>
+    </div>
+    <!-- Two column box-->
+    <div class="row box">
+        <!-- First box for recent posts, link to all other posts only if logged in-->
+        <div class="col-md-6 border-r">
+            <h2>Recent Posts</h2> <hr>
+            {% for post in posts.items %}
+                <article class="media content-section">
+                  <img class="rounded-circle article-little-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2">{{ post.author.username }}</a>
+                      <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+                    </div>
+                    <h5>{{ post.title }}</h5>
+                    <p class="article-content">{{ post.content }}</p>
+                  </div>
+                </article>
+            {% endfor %}
+            {% if current_user.is_authenticated %}
+                <div class="text-center">
+                    <a class="btn btn-secondary btn-lg" href="{{ url_for('posts.all_posts') }}" role="button">
+                        See All Posts
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+        <!-- Second column for recent games, dummy data entered-->
+        <div class="col-md-6 border-l">
+            <h2>Latest Game</h2> <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-5 date">
+                        <p>Wed, 2019-11-06</p>
+                        <p>18:30</p>
+                    </div>
+                    <div class="col-7">
+                        <p>Concordia: 20 Mcgill:15</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Next Game</h2> <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-5 date">
+                        <p>Wed, 2019-11-13</p>
+                        <p>18:30</p>
+                    </div>
+                    <div class="col-7">
+                        <p>Concordia VS UQAM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg" href="{{ url_for('main.team') }}" role="button">
+                    For all past and upcoming games, click here to see the full list
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
