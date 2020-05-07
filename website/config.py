@@ -8,7 +8,7 @@ import json
 
 
 class Config:
-    SECRET_KEY = '0365dc6b9c6ba1faa9dc5795376549a4'
+    SECRET_KEY = os.environ.get('SECRET_KEY_FRISBEE')
     SQLALCHEMY_DATABASE_URI = 'sqlite:///data/site.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = 'smtp.googlemail.com'
